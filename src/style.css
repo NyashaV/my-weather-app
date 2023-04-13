@@ -44,6 +44,9 @@ body {
   top: 30px;
   font-size: 2em;
 }
+.description {
+  text-transform: capitalize;
+}
 #celsius-link {
   font-size: 25px;
 }

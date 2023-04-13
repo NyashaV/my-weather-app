@@ -1,22 +1,28 @@
-let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
 
-let time = now.getHours();
-let minutes = now.getMinutes();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
 
-let h3 = document.querySelector("h3.dayTimeHeading");
-h3.innerHTML = `${day} </br> ${time}:${minutes} <br/> <hr/> Cloudy`;
+  return `${day} </br> ${hour}:${minutes} <hr />`;
+}
 
-//Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
 function search(city) {
   let apiKey = "667d9f573c8af4c33457be5d561a9148";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -36,10 +42,12 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = `Wind:${Math.round(
     response.data.wind.speed
   )}`;
-  // Cant figure out why this isnt working....
-  //  document.querySelector("#description").innerHTML =    response.data.weather[0].description;
+  document.querySelector(".description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector(".dayTimeHeading").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 }
-
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search-input").value;
