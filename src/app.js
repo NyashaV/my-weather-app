@@ -38,8 +38,8 @@ function displayWeather(response) {
   );
   document.querySelector(
     "#humidity"
-  ).innerHTML = `Humidity:${response.data.main.humidity}`;
-  document.querySelector("#wind").innerHTML = `Wind:${Math.round(
+  ).innerHTML = `Humidity: ${response.data.main.humidity}`;
+  document.querySelector("#wind").innerHTML = `Wind: ${Math.round(
     response.data.wind.speed
   )}`;
   document.querySelector(".description").innerHTML =
@@ -47,7 +47,17 @@ function displayWeather(response) {
   document.querySelector(".dayTimeHeading").innerHTML = formatDate(
     response.data.dt * 1000
   );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", response.data.weather[0].description);
 }
+
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search-input").value;

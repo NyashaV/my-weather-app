@@ -47,22 +47,18 @@ body {
 .description {
   text-transform: capitalize;
 }
-#celsius-link {
-  font-size: 25px;
+.celcius {
+  font-size: 15px;
+  position: relative;
+  top: -12px;
+}
+/* #celsius-link {
+  font-size: 15px;
 }
 #fahrenheit-link {
   font-size: 25px;
-}
-.cloudemoji {
-  color: #909090;
-  font-size: 50px;
-  position: relative;
-  left: 120px;
-  top: -250px;
-}
-.cloudemojismall {
-  color: #909090;
-  font-size: 35px;
+} */
+#icon {
   position: relative;
   left: 88px;
   top: -273px;
@@ -75,11 +71,11 @@ body {
 }
 #weatherstats {
   position: relative;
-  top: -335px;
+  top: -369px;
   left: 204px;
-}
-#emoji {
-  font-size: 30px;
+  font-size: 18px;
+  text-align: left;
+  color: #12a3b8;
 }
 hr {
   background-color: #12a3b8;

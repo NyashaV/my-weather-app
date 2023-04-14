@@ -21,7 +21,6 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script src="src/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
@@ -57,7 +56,8 @@
         <h2 id="city-search">Weather for</h2>
         <div class="card-body">
           <h3 class="card-text tempratureChanges">
-            <span id="temprature-unit"> </span> °C
+            <span id="temprature-unit"> </span>
+            <span class="celcius"> °C </span>
             <!-- <a href="#" id="celsius-link">°C</a> |
             <a href="#" id="fahrenheit-link"> °F</a> -->
           </h3>
@@ -72,15 +72,15 @@
           Saturday 11:00
           <hr />
         </h3>
-        <h3 class="description"></h3>
+        <h5 class="description"></h5>
       </div>
-      <i class="fa-solid fa-cloud cloudemoji"></i>
-      <i class="fa-solid fa-cloud cloudemojismall"></i>
-      <div class="card" id="weatherstats" style="height: 103px; width: 166px">
+      <img src=".." alt="" id="icon" />
+      <!-- <i class="fa-solid fa-cloud cloudemoji" id="icon"></i> -->
+      <div class="card" id="weatherstats" style="height: 80px; width: 160px">
         <div class="card-body">
-          <!-- Precipitation: %
-          <br /> -->
-          <span id="humidity">66</span>% <br /><span id="wind">6</span>km/h
+          <span id="humidity"> 66</span>%
+          <br />
+          <span id="wind"> 6</span>km/h
         </div>
       </div>
       <hr class="pagedivideone" />
@@ -126,12 +126,12 @@
         <div class="githublink">
           <a
             href="https://github.com/NyashaV/my-weather-app/commit/9344e8f821a072fda5c0e44ae207a1ba3fbe3111?diff=unified"
-            target="_blank"
             >Open source code</a
           >
           by Nyasha Tavatya
         </div>
       </div>
     </div>
+    <script src="src/app.js"></script>
   </body>
 </html>
