@@ -36,6 +36,9 @@ function displayWeather(response) {
   document.querySelector("#temprature-unit").innerHTML = Math.round(
     response.data.main.temp
   );
+
+  celsiusTemprature = response.data.main.temp;
+
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity}`;
@@ -84,19 +87,26 @@ citySearch.addEventListener("click", searchCity);
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", yourLocation);
 
-// function celsius(event) {
-//   event.preventDefault();
-//   let celciusLink = document.querySelector("#temprature-unit");
-//   celciusLink.innerHTML = `4`;
-// }
+function displayCelsius(event) {
+  event.preventDefault();
+  let celciusLink = document.querySelector("#temprature-unit");
+  celciusLink.innerHTML = Math.round(celsiusTemprature);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
 
-// function fahrenheit(event) {
-//   event.preventDefault();
-//   let fahrenheit = document.querySelector("#temprature-unit");
-//   fahrenheit.innerHTML = `40`;
-// }
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheit = (celsiusTemprature * 9) / 5 + 32;
+  let fahrenheitElement = document.querySelector("#temprature-unit");
+  fahrenheitElement.innerHTML = Math.round(fahrenheit);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
 
-// let celsiusLink = document.querySelector("#celsius-link");
-// celsiusLink.addEventListener("click", celsius);
-// let fahrenheitLink = document.querySelector("#fahrenheit-link");
-// fahrenheitLink.addEventListener("click", fahrenheit);
+let celsiusTemprature = null;
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);

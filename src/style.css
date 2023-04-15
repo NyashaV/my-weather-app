@@ -40,15 +40,22 @@ body {
 }
 .tempratureChanges {
   position: relative;
-  left: 0px;
-  top: 30px;
-  font-size: 2em;
+  left: 65px;
+  top: 5px;
+  font-size: 40px;
+}
+.tempratureChanges .active {
+  color: black;
+  cursor: default;
+}
+.tempratureChanges .active:hover {
+  text-decoration: none;
 }
 .description {
   text-transform: capitalize;
 }
-.celcius {
-  font-size: 15px;
+.tempconversion {
+  font-size: 18px;
   position: relative;
   top: -12px;
 }
@@ -60,8 +67,8 @@ body {
 } */
 #icon {
   position: relative;
-  left: 88px;
-  top: -273px;
+  left: -10px;
+  top: -280px;
 }
 #weatherdate {
   text-align: center;
