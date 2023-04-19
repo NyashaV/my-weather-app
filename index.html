@@ -48,86 +48,61 @@
           </div>
         </form>
       </div>
-      <div
-        class="card text-white bg-info mb-3"
-        style="height: 150px; width: 370px"
-        id="weathercity"
-      >
-        <h2 id="city-search">Weather for</h2>
-        <div class="card-body">
-          <h3 class="card-text tempratureChanges">
-            <span id="temprature-unit"> </span>
-            <a href="#" id="celsius-link" class="tempconversion active">°C</a
-            >|<a href="#" id="fahrenheit-link" class="tempconversion">°F</a>
-          </h3>
-        </div>
-      </div>
-      <div
-        class="card text-white bg-info mb-3"
-        style="height: 150px; width: 150px"
-        id="weatherdate"
-      >
-        <h3 class="dayTimeHeading" id="date-time">
-          Saturday 11:00
-          <hr />
-        </h3>
-        <h5 class="description"></h5>
-      </div>
-      <img src=".." alt="" id="icon" />
-      <!-- <i class="fa-solid fa-cloud cloudemoji" id="icon"></i> -->
-      <div class="card" id="weatherstats" style="height: 80px; width: 160px">
-        <div class="card-body">
-          <span id="humidity"> 66</span>%
-          <br />
-          <span id="wind"> 6</span>km/h
-        </div>
-      </div>
-      <hr class="pagedivideone" />
-      <ul id="tpw">
-        <li>Temprature</li>
-        <li>Precipitation</li>
-        <li>Wind</li>
-      </ul>
-      <!-- when js hover on, each to be highlighted when hovered  -->
-      <hr class="pagedividetwo" />
-      <h1 class="graph">GRAPH HERE</h1>
-      <!-- Consider placing the divs for weatherday into one colum of 5  -->
-      <div class="container">
-        <div class="row" id="weatherday">
-          <div class="col-sm">Sat</div>
-          <div class="col-sm">Sun</div>
-          <div class="col-sm">Mon</div>
-          <div class="col-sm">Tue</div>
-          <div class="col-sm">Wed</div>
-        </div>
-        <div class="row" id="weatherday">
-          <div class="col-sm" id="emoji">☁️</div>
-          <div class="col-sm" id="emoji">🌧️</div>
-          <div class="col-sm" id="emoji">🌧️</div>
-          <div class="col-sm" id="emoji">🌧️🌨️</div>
-          <div class="col-sm" id="emoji">🌨️</div>
-        </div>
-        <div class="row" id="weatherday">
-          <div class="col-sm" id="degree">X°|X°</div>
-          <div class="col-sm" id="degree">X°|X°</div>
-          <div class="col-sm" id="degree">X°|X°</div>
-          <div class="col-sm" id="degree">X°|X°</div>
-          <div class="col-sm" id="degree">X°|X°</div>
-        </div>
-        <hr class="weatherlinkline" />
-        <a
-          href="https://www.weather.com"
-          target="_blank"
-          class="weatherwebsite"
+      <div class="moving">
+        <div
+          class="card text-white bg-info mb-3"
+          style="height: 150px; width: 370px"
+          id="weathercity"
         >
-          weather.com
-        </a>
-        <div class="githublink">
+          <h2 id="city-search">Weather for</h2>
+          <div class="card-body">
+            <h3 class="card-text tempratureChanges">
+              <span id="temprature-unit"> </span>
+              <a href="#" id="celsius-link" class="tempconversion active">°C</a
+              >|<a href="#" id="fahrenheit-link" class="tempconversion">°F</a>
+            </h3>
+          </div>
+        </div>
+        <div
+          class="card text-white bg-info mb-3"
+          style="height: 150px; width: 150px"
+          id="weatherdate"
+        >
+          <h3 class="dayTimeHeading" id="date-time">
+            Saturday 11:00
+            <hr />
+          </h3>
+          <h5 class="description"></h5>
+        </div>
+        <img src=".." alt="" id="icon" />
+        <!-- <i class="fa-solid fa-cloud cloudemoji" id="icon"></i> -->
+        <div class="card" id="weatherstats" style="height: 80px; width: 160px">
+          <div class="card-body">
+            <span id="humidity"> 66</span>%
+            <br />
+            <span id="wind"> 6</span>km/h
+          </div>
+        </div>
+        <hr class="pagedivideone" />
+        <!-- when js hover on, each to be highlighted when hovered  -->
+        <hr class="pagedividetwo" />
+        <div id="forecast">
+  
+        </div>
           <a
-            href="https://github.com/NyashaV/my-weather-app/commit/9344e8f821a072fda5c0e44ae207a1ba3fbe3111?diff=unified"
-            >Open source code</a
+            href="https://www.weather.com"
+            target="_blank"
+            class="weatherwebsite"
           >
-          by Nyasha Tavatya
+            weather.com
+          </a>
+          <div class="githublink">
+            <a
+              href="https://github.com/NyashaV/my-weather-app/commit/9344e8f821a072fda5c0e44ae207a1ba3fbe3111?diff=unified"
+              >Open source code</a
+            >
+            by Nyasha Tavatya
+          </div>
         </div>
       </div>
     </div>

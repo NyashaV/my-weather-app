@@ -19,16 +19,38 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[now.getDay()];
-
   return `${day} </br> ${hour}:${minutes} <hr />`;
 }
-
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2" id="weatherday">
+              <div class="forecastDay">${day}</div>
+              <img
+                src="https://images.theconversation.com/files/232705/original/file-20180820-30593-1nxanpj.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
+                alt=""
+                id="forecast-icon"
+                width="30px"
+              />
+              <div class="forecastTemps">
+                <span class="forecastTempMax">40°</span>
+                <span class="forecastTempMin">9°</span>
+              </div>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function search(city) {
   let apiKey = "667d9f573c8af4c33457be5d561a9148";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayWeather);
 }
-
 function displayWeather(response) {
   document.querySelector(
     "#city-search"
@@ -60,7 +82,6 @@ function displayWeather(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 }
-
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search-input").value;
@@ -73,20 +94,10 @@ function searchLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
-
 function yourLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-search("London");
-
-let citySearch = document.querySelector(".citySearch");
-citySearch.addEventListener("click", searchCity);
-
-let currentLocation = document.querySelector("#current-location-button");
-currentLocation.addEventListener("click", yourLocation);
-
 function displayCelsius(event) {
   event.preventDefault();
   let celciusLink = document.querySelector("#temprature-unit");
@@ -103,6 +114,14 @@ function displayFahrenheit(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 }
+search("London");
+displayForecast();
+
+let citySearch = document.querySelector(".citySearch");
+citySearch.addEventListener("click", searchCity);
+
+let currentLocation = document.querySelector("#current-location-button");
+currentLocation.addEventListener("click", yourLocation);
 
 let celsiusTemprature = null;
 

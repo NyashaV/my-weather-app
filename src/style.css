@@ -6,7 +6,7 @@ body {
 }
 #pageoutline {
   max-width: 600px;
-  max-height: 750px;
+  max-height: 500px;
   margin: 0 auto;
   margin-top: 40px;
   padding: 10px;
@@ -89,7 +89,7 @@ hr {
 }
 .pagedivideone {
   position: relative;
-  top: -260px;
+  top: -310px;
   display: block;
   margin: 0 auto;
 }
@@ -110,32 +110,39 @@ li {
 }
 .pagedividetwo {
   position: relative;
-  top: -130px;
+  top: -180px;
   display: block;
   margin: 0 auto;
 }
 #weatherday {
   position: relative;
-  top: -160px;
+  top: -295px;
+  left: 30px;
+  text-align: center;
+}
+.forecastDay {
   font-size: 20px;
 }
-.weatherlinkline {
-  position: relative;
-  top: -125px;
-  left: -56px;
-  width: 460px;
-  display: block;
-  margin: 0 auto;
+.forecastTemps {
+  font-size: 15px;
 }
+.forecastTempMin {
+  opacity: 0.5;
+}
+
 .weatherwebsite {
   position: relative;
-  top: -140px;
-  left: 465px;
-  font-size: 20px;
+  top: -285px;
+  left: 425px;
+  font-size: 1rem;
 }
 .githublink {
   text-align: center;
   display: block;
   position: relative;
-  top: -125px;
+  top: -280px;
+}
+.moving {
+  position: relative;
+  top: -60px;
 }
