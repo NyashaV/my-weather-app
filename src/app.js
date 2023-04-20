@@ -21,7 +21,8 @@ function formatDate(timestamp) {
   let day = days[now.getDay()];
   return `${day} </br> ${hour}:${minutes} <hr />`;
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -46,6 +47,14 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "9afa0tbcd39f5a30316f363o86cafb4c";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function search(city) {
   let apiKey = "667d9f573c8af4c33457be5d561a9148";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -81,6 +90,7 @@ function displayWeather(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 function searchCity(event) {
   event.preventDefault();
@@ -115,7 +125,6 @@ function displayFahrenheit(event) {
   fahrenheitLink.classList.add("active");
 }
 search("London");
-displayForecast();
 
 let citySearch = document.querySelector(".citySearch");
 citySearch.addEventListener("click", searchCity);
